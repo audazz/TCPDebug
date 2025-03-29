@@ -1,3 +1,26 @@
+
+Simplest quick start : open TCPDebug app - find it on Releases . Start server . use macro 
+NETDBG ("Watch out \n", theNumber );
+
+In your app make addition 
+
+header private 
+juce::StreamingSocket logSocket;
+
+constructor
+    if (logSocket.connect("127.0.0.1", 6000))
+    {
+        logSocket.write("Debug Window at your service!\n", 30);
+    }
+
+on top of cpp 
+
+ #define NETDBG(str, msg) do { \
+     juce::String message = juce::String(str) + juce::String(msg); \
+     logSocket.write(message.toRawUTF8(), static_cast<int> (message.getNumBytesAsUTF8())); \
+ } while (false)
+ 
+
 # TCPDebug
 
 	#pragma once
