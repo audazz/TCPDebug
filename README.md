@@ -1,3 +1,4 @@
+# TCPDebug
 
 Simplest quick start : open TCPDebug app - find it on Releases . Start server . use macro 
 NETDBG ("Watch out \n", theNumber );
@@ -21,38 +22,8 @@ on top of cpp
  } while (false)
  
 
-# TCPDebug
 
-	#pragma once
-	
-	#include <JuceHeader.h>
-	
-	//==============================================================================
-	// Handy debug macros for quick logging
-	#define NDBG(str, num) TCPDebugClient::getGlobalInstance()->debug(String(str) + ": " + String(num))
-	#define NDBG_STR(str, val) TCPDebugClient::getGlobalInstance()->debug(String(str) + ": " + String(val))
-	#define NDBG_WARN(str, num) TCPDebugClient::getGlobalInstance()->warning(String(str) + ": " + String(num))
-	#define NDBG_ERR(str, num) TCPDebugClient::getGlobalInstance()->error(String(str) + ": " + String(num))
-	
-	//==============================================================================
-	// A client class that can be included in your application for remote debugging
-	class TCPDebugClient : private Thread
-	{
-	public:
-	    // Singleton access for global debugging
-	    static TCPDebugClient* getGlobalInstance()
-	    {
-	        static TCPDebugClient instance;
-	        return &instance;
-	    }
-    
-    TCPDebugClient() : Thread("TCP Debug Client")
-    {
-        lastConnectionAttempt = Time::getCurrentTime();
-    }
-    
-    // Implement other methods...
-};
+History
 
 1. Improved ServerThread Architecture
 The new ServerThread.h file contains:
