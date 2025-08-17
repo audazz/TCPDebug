@@ -1,5 +1,7 @@
 # TCPDebug
 
+
+
 Simplest quick start : open TCPDebug app - find it on Releases . Start server . use macro 
 NETDBG ("Watch out \n", theNumber );
 
@@ -21,6 +23,7 @@ on top of cpp
      logSocket.write(message.toRawUTF8(), static_cast<int> (message.getNumBytesAsUTF8())); \
  } while (false)
  
+<img width="809" height="625" alt="Screen Shot 2025-08-17 at 19 17 31" src="https://github.com/user-attachments/assets/f52601aa-feed-46d3-9cf9-2f0f7918d6ff" />
 
 
 History
